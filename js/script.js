@@ -7,6 +7,7 @@ addDotButtonFunctionality();
 addRootButtonFunctionality();
 addPlusminusButtonFunctionality();
 addEqualsButtonFunctionality();
+clickedBackspace();
 
 function addNumberButtonFunctionality() {
     const buttons = document.querySelectorAll('button.number');
@@ -115,4 +116,13 @@ function getNewNumber(number) {
         return;
     }
     curr.textContent += number;
+}
+
+function clickedBackspace(){
+    document.querySelector('.main').addEventListener('keydown',(event) => {
+        if(event.key === "Backspace") {
+            const curr = document.querySelector('.screen-current');
+            curr.textContent = curr.textContent.slice(0, -1);
+        }
+    });
 }
